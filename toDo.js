@@ -8,7 +8,18 @@ document.getElementById("add-task-button").addEventListener("click", function(){
     }
 
     const taskList = document.getElementById("task-list");
+    const checkbox = document.createElement("input");
     const listItem = document.createElement("li");
+
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", function() {
+        if (checkbox.checked) {
+            listItem.classList.add("done");
+        } else {
+            listItem.classList.remove("done");
+        }    
+    })
+
     listItem.textContent = taskValue;
 
     const deleteButton = document.createElement("button");
@@ -18,7 +29,9 @@ document.getElementById("add-task-button").addEventListener("click", function(){
     })
 
     listItem.appendChild(deleteButton);
+    listItem.appendChild(checkbox);
     taskList.appendChild(listItem);
 
+
     taskInput.value = "";
-})
+});
