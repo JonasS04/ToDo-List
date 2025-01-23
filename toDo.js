@@ -8,17 +8,20 @@ document.getElementById("add-task-button").addEventListener("click", function(){
     }
 
     const taskList = document.getElementById("task-list");
-    const checkbox = document.createElement("input");
-    const listItem = document.createElement("li");
 
-    checkbox.type = "checkbox";
-    checkbox.addEventListener("change", function() {
-        if (checkbox.checked) {
-            listItem.classList.add("done");
-        } else {
-            listItem.classList.remove("done");
-        }    
+    const checkbox = document.createElement("input");
+
+
+    const listItem = document.createElement("li");
+    listItem.classList.add("task-item");
+    document.getElementById("task-list").appendChild(listItem);
+    
+    listItem.addEventListener("click", function(){
+        listItem.classList.toggle("done");
     })
+
+
+    
 
     listItem.textContent = taskValue;
 
@@ -28,7 +31,7 @@ document.getElementById("add-task-button").addEventListener("click", function(){
         taskList.removeChild(listItem);
     })
 
-    listItem.appendChild(checkbox);
+    
     listItem.appendChild(deleteButton);
     taskList.appendChild(listItem);
 
