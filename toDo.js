@@ -28,8 +28,8 @@ document.getElementById("add-task-button").addEventListener("click", function(){
         taskList.removeChild(listItem);
     })
 
-    listItem.appendChild(deleteButton);
     listItem.appendChild(checkbox);
+    listItem.appendChild(deleteButton);
     taskList.appendChild(listItem);
 
 
