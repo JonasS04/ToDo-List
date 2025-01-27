@@ -23,7 +23,7 @@ function loadTasks() {
         const taskText = document.createElement("span");
         taskText.textContent = task.text;
         listItem.appendChild(taskText);
-
+        
       
         listItem.addEventListener("click", function () {
             listItem.classList.toggle("done");
