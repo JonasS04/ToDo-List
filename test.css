@@ -1,0 +1,135 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: lightgrey;
+    height: 100vh;
+}
+
+.todo-container {
+    padding: 40% 40% 40% 40%;
+    width: 400px;
+}
+#task-input {
+  width: 220px; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+}
+#add-task-button {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  width: 140px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+
+
+#task-list {
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
+.task-item {
+  position: relative; 
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.tooltip {
+  display: block;
+  position: absolute;
+  bottom: 100%; 
+  left: 50%; 
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  white-space: nowrap;
+  visibility: hidden; 
+  opacity: 0;
+  margin-top: 5px;
+  line-height: 1.6; 
+  white-space: pre-line; 
+  width: 200px;
+}
+
+.task-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+.task-item {
+    background-color: whitesmoke;
+    color: black;
+    padding: 10px;
+    width: 370px;
+    border-radius: 5px; 
+    margin-bottom: 5px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.done {
+    background-color: lightgreen;
+    color:black;
+}
+button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#add-done-button {
+  background-color: white; 
+  color: grey; 
+  height: 40px;
+  border: none;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 49%;
+  margin-top: 10px;
+}
+#add-notDone-Button {
+  background-color: white; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 48%;
+}
+#add-all_Button {
+  background-color: white; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 48%;
+  margin-left: 26%;
+}

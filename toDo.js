@@ -82,9 +82,9 @@ document.getElementById("add-task-button").addEventListener("click", function ()
     }
 
     const taskList = document.getElementById("task-list");
-
     const listItem = document.createElement("li");
     listItem.classList.add("task-item");
+
 
     const taskText = document.createElement("span");
     taskText.textContent = taskValue;
@@ -117,6 +117,7 @@ document.getElementById("add-task-button").addEventListener("click", function ()
         saveTasks();
     });
 
+    
     listItem.appendChild(deleteButton);
     taskList.appendChild(listItem);
 
