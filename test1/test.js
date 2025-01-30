@@ -1,10 +1,9 @@
-// Aufgaben-Datenstruktur
 let tasks = [];
 
-// Aufgaben hinzufügen
+
 function addTask(text) {
     const newTask = {
-        id: Date.now(), // Eindeutige ID basierend auf Zeitstempel
+        id: Date.now(), 
         text: text,
         createdAt: new Date().toLocaleString("de-DE"),
         doneAt: null,
@@ -15,7 +14,7 @@ function addTask(text) {
     renderTasks();
 }
 
-// Aufgabenstatus umschalten
+
 function toggleTaskDone(taskId) {
     const task = tasks.find(t => t.id === taskId);
     if (task) {
@@ -26,28 +25,28 @@ function toggleTaskDone(taskId) {
     }
 }
 
-// Aufgabe löschen
+
 function deleteTask(taskId) {
     tasks = tasks.filter(t => t.id !== taskId);
     saveTasks();
     renderTasks();
 }
 
-// Aufgaben speichern
+
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Aufgaben laden
+
 function loadTasks() {
     tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     renderTasks();
 }
 
-// Aufgaben anzeigen
+
 function renderTasks() {
     const taskList = document.getElementById("task-list");
-    taskList.innerHTML = ""; // Liste leeren
+    taskList.innerHTML = ""; 
 
     tasks.forEach(task => {
         const listItem = document.createElement("li");
@@ -55,12 +54,12 @@ function renderTasks() {
         listItem.setAttribute("data-id", task.id);
         if (task.isDone) listItem.classList.add("done");
 
-        // Aufgabentext
+      
         const taskText = document.createElement("span");
         taskText.textContent = task.text;
         listItem.appendChild(taskText);
 
-        // Tooltip für Erstellungs- und Erledigungszeit
+   
         const tooltip = document.createElement("span");
         tooltip.classList.add("tooltip");
         tooltip.innerHTML = `Erstellt am: ${task.createdAt}<br>${
@@ -68,12 +67,11 @@ function renderTasks() {
         }`;
         listItem.appendChild(tooltip);
 
-        // Klick-Event für "done"
         listItem.addEventListener("click", function () {
             toggleTaskDone(task.id);
         });
 
-        // Löschen-Button
+        
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Löschen";
         deleteButton.addEventListener("click", function () {
@@ -85,7 +83,7 @@ function renderTasks() {
     });
 }
 
-// Event-Listener für Buttons
+
 document.getElementById("add-task-button").addEventListener("click", function () {
     const taskInput = document.getElementById("task-input");
     const taskValue = taskInput.value.trim();

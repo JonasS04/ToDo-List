@@ -1,0 +1,167 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: lightgrey;
+    height: 100vh;
+}
+
+.todo-container {
+    padding: 40% 40% 40% 40%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+table {
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+#task-table tbody tr {
+    height: 50px;
+}
+#task-table tbody td {
+    vertical-align: middle;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 20%;
+}
+tbody {
+    background-color: white;
+}
+th {
+    background-color: white;
+    cursor: pointer;
+}
+tr, td {
+    cursor: pointer;
+}
+tr.done td {
+    color: black;
+    background-color: lawngreen;
+    cursor: pointer;
+}
+.actions button {
+    padding: 5px 10px;
+}
+th:hover {
+    background-color: lightcoral;
+    color: white;
+}
+.arrow {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+
+#task-input {
+  width: 300px; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+}
+#add-task-button {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  width: 163px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+#add-task-button:hover {
+    background-color: red;
+    color: white;
+}
+
+button {
+    background-color: grey; 
+    color: white; 
+    border: none;
+    height: 40px;
+    border-radius: 5px; 
+    padding: 10px 20px;
+    margin-top: 0;
+    font-size: 16px; 
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 2.5px;
+}
+button:hover {
+    background-color: red;
+    color: white;
+}
+
+
+#show-done-button {
+  background-color: white; 
+  color: grey; 
+  height: 40px;
+  border: none;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 32%;
+  margin-top: 10px;
+}
+#show-done-button:hover {
+    background-color: red;
+    color: white;
+}
+
+#show-not-done-button {
+  background-color: white; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 33%;
+}
+#show-not-done-button:hover {
+    background-color: red;
+    color: white;
+}
+
+#show-all-button {
+  background-color: white; 
+  color: grey; 
+  border: none;
+  height: 40px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 33%;
+}
+#show-all-button:hover {
+    background-color: red;
+    color: white;
+}
