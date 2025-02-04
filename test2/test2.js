@@ -1,7 +1,8 @@
 let tasks = []; // speichert alle Aufgaben
-let lastSortedColumn = null; // speichert die zuletzt sortierte Spalte
-let lastSortDirection = true; // speichert ob die letzte Sortierung aufsteigend oder absteigend war
+let lastSortedColumn = null; 
+let lastSortDirection = true; 
 
+//Neue Aufgaben hinzufügen + Einfügen ins Array
 function addTask(text) {
     const newTask = {
         id: Date.now(),
@@ -10,119 +11,309 @@ function addTask(text) {
         doneAt: null,
         isDone: false
     };
-    tasks.push(newTask); // wird ins array gespeichert
-    saveTasks(); // speichert Array im locale Storage
-    renderTasks(); // zeigt die Aktualisierte Aufgabenliste an
+    tasks.push(newTask); 
+    saveTasks(); 
+    renderTasks(); 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Aufgaben ins local Storage speichern
 function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Aufgaben aus dem local Storage laden
 function loadTasks() {
-    tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    renderTasks();
+    const storedTasks = localStorage.getItem("tasks"); 
+    tasks = storedTasks ? JSON.parse(storedTasks) : [];
+    renderTasks(); 
 }
 
-function renderTasks(filter = "all") { // filter kann all,done oder not-done sein 
-    const taskTableBody = document.querySelector("#task-table tbody"); // wählt den Tabellenkörper aus
-    taskTableBody.innerHTML = "";  // löscht den aktuellen Tabelleninhalt
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Erstellt neue Spalten und hängt sie an den Körper
+function renderTasks(filter = "all") { 
+    const taskTableBody = document.querySelector("#task-table tbody"); 
+    taskTableBody.innerHTML = ""; 
+    
     tasks
         .filter(task => { 
-            if (filter === "done") return task.isDone; // zeigt nur die Erledigten Aufgaben an
-            if (filter === "not-done") return !task.isDone; // zeigt nur die Unerledigten Aufgaben an
-            return true; // Zeigt alle Aufgaben an
+            if (filter === "done") return task.isDone; 
+            if (filter === "not-done") return !task.isDone; 
+            return true; 
         })
-        .forEach(task => { // Nachdem Filter wird für jede gefiterte Aufgabe 
-            const row = document.createElement("tr"); // ein neues tr Elenent erstellt
-            row.classList.toggle("done", task.isDone); // Falls erledigt bekommt sie die Klasse done
+        .forEach(task => { 
+            const row = document.createElement("tr"); 
+            row.classList.toggle("done", task.isDone);
             row.addEventListener("click", () => openTaskInNewPage(task.id));
-                
-         
 
-            const taskTextCell = document.createElement("td"); // Erstellt eine zeile
-            taskTextCell.textContent = task.text; // gibt den input Text als Inhalt
-            row.appendChild(taskTextCell); // hängt sie an die Zelle
-   
+            const taskTextCell = document.createElement("td"); 
+            taskTextCell.textContent = task.text; 
+            row.appendChild(taskTextCell); 
 
-            const createdAtCell = document.createElement("td"); // Erstellt eine neue zeile
-            createdAtCell.textContent = task.createdAt; //gibt das Erstellungsdatum als Inhalt an
-            row.appendChild(createdAtCell); // hängt sie an die Zelle
+            const createdAtCell = document.createElement("td"); 
+            createdAtCell.textContent = task.createdAt; 
+            row.appendChild(createdAtCell); 
 
-            const doneAtCell = document.createElement("td");  // Erstellt eine neue Zeile
-            doneAtCell.textContent = task.doneAt || "-"; // gibt das Erledigungsdatum als Inhalt an oder -
-            row.appendChild(doneAtCell); // hängt sie an die Zelle
 
-            const actionsCell = document.createElement("td"); // Erstellt eine neue Zeile
-            actionsCell.classList.add("actions"); // gibt eine Klasse für actionsCell
-            const doneButton = document.createElement("button"); // Erstellt einen Button
-            doneButton.textContent = task.isDone ? "Rückgängig" : "Erledigt"; // gib den Text Inhalt des Buttons an
-            doneButton.addEventListener("click", () => toggleTaskDone(task.id)); // man gibt dem Button eine Klick funktion und zwar das er toggleTaskDone aufrufen soll wenn Klicl
-            actionsCell.appendChild(doneButton);  // hängt den Button an die neu erstellte Zeile an
-            const deleteButton = document.createElement("button"); // Erstellt einen neuen Button
-            deleteButton.textContent = "Löschen"; // gibt den text Inhalt des Buttons an
-            deleteButton.addEventListener("click", () => deleteTask(task.id)); // gibt dem Button eine Klick funktion und zwar soll er beim Klick zu deketeTask springen
-            actionsCell.appendChild(deleteButton); // hängt deb Lösch Button an die neue Zeile an
 
-            row.appendChild(actionsCell); // hängt die Zeile an die Zelle an
-            taskTableBody.appendChild(row); // hängt die komplette Zeile an die Tabelle an
+
+            const doneAtCell = document.createElement("td");  
+            const storedTasks = JSON.parse(localStorage.getItem("tasks1")) || [];
+            console.log("Suche nach ID:", task.id);
+            console.log("Verfügbare IDs im localStorage:", storedTasks.map(t => t.id));
+            const storedTask = storedTasks.find(t => t.id == task.id);
+ 
+           
+
+
+            doneAtCell.textContent = storedTask && storedTask.doneAt ? storedTask.doneAt : "-";
+            row.appendChild(doneAtCell);
+            
+
+
+
+
+
+
+            const actionsCell = document.createElement("td"); 
+            actionsCell.classList.add("actions"); 
+            const deleteButton = document.createElement("button"); 
+            deleteButton.textContent = "Löschen"; 
+            deleteButton.addEventListener("click", (event) => {
+                event.stopPropagation(); // Verhindert, dass `openTaskInNewPage` aufgerufen wird
+                deleteTask(task.id);
+            });
+            actionsCell.appendChild(deleteButton); 
+
+            row.appendChild(actionsCell);
+            taskTableBody.appendChild(row);
         });
 
-    
     if (lastSortedColumn !== null) { 
         sortTable(lastSortedColumn, true);
     }
 }
 
-function toggleTaskDone(taskId) { 
-    const task = tasks.find(t => t.id === taskId); // findet die Aufgabe mit der übergebenen taskID
-    if (task) { 
-        task.isDone = !task.isDone; //  ändert den Status (isDone)
-        task.doneAt = task.isDone ? new Date().toLocaleString("de-DE") : null; // falls erledigt wird doneAt mit aktuellem Datum gefüllt sonst auf null gesetzt
-        saveTasks(); // speichert Änderungen
-        renderTasks(); // aktualisiert die Anzeige mit den Änderungen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Status der Aufgabe umschalten
+function toggleTaskDone(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+    if (task) {
+        task.isDone = !task.isDone;
+        task.doneAt = task.isDone ? new Date().toLocaleString("de-DE") : null;
+        saveTasks();
+        renderTasks();
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Aufgaben löschen
 function deleteTask(taskId) {
-    tasks = tasks.filter(t => t.id !== taskId); // entfernt die Aufgaben mit taskID und tasks
-    saveTasks(); // speichert die Liste 
-    renderTasks(); // aktualisiert die Anzeige
+    tasks = tasks.filter(t => t.id !== taskId); 
+    saveTasks(); 
+    renderTasks(); 
 }
 
-document.getElementById("add-task-button").addEventListener("click", () => { // Klick Funktion für Button zum Hinzufügen
-    const taskInput = document.getElementById("task-input"); // Hollt sich den Input aus dem Eingabefeld
-    const taskValue = taskInput.value.trim(); // entfernt alle Lerzeichen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hinzufügen Button zum Leben erwecken plus Fehlermeldung bei keiner eingabe
+document.getElementById("add-task-button").addEventListener("click", () => { 
+    const taskInput = document.getElementById("task-input"); 
+    const taskValue = taskInput.value.trim(); 
 
     if (taskValue === "") {
-        alert("Bitte geben Sie eine Aufgabe ein."); // wenn input Leer ist wird Warnung ausgesprochen
+        alert("Bitte geben Sie eine Aufgabe ein."); 
         return;
     }
 
     addTask(taskValue);
-    taskInput.value = ""; // leert das Eingabefeld
+    taskInput.value = ""; 
 });
 
-document.getElementById("show-all-button").addEventListener("click", () => { // Gibt Filter Button Klick Funbktion
-    renderTasks("all"); // alle anzeigen durch den Filter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Filter Buttons werden zum leben erweckt und definiert
+document.getElementById("show-all-button").addEventListener("click", () => { 
+    renderTasks("all"); 
 });
 
 document.getElementById("show-done-button").addEventListener("click", () => {
-    renderTasks("done"); // nur done Anzeigen durch den Filter
+    renderTasks("done"); 
 });
 
 document.getElementById("show-not-done-button").addEventListener("click", () => {
-    renderTasks("not-done"); // nur nicht done Anzeigen durch den Filter
-
+    renderTasks("not-done");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 let sortDirections = [false, false, false];
 
+// führt den enthaltenden Code aus sobald das HTML Element vollständig geladen wurde
 document.addEventListener("DOMContentLoaded", function () {
+    loadTasks(); 
     const headers = document.querySelectorAll("#task-table th");
     headers.forEach((header, index) => {
         header.addEventListener("click", function () {
@@ -131,6 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// sorgt dafür das die einzelnen Zeilen sortiert werden
 function sortTable(columnIndex, keepDirection = false) {
     const table = document.getElementById("task-table");
     const tbody = table.querySelector("tbody");
@@ -158,172 +350,59 @@ function sortTable(columnIndex, keepDirection = false) {
 
     resetArrows();
     const arrow = table.querySelectorAll("th")[columnIndex].querySelector(".arrow");
-    if (isAscending) {
-        arrow.classList.add("up");
-    } else {
-        arrow.classList.remove("up");
+    if (arrow) {
+        arrow.classList.toggle("up", isAscending);
     }
 }
 
+// setzt alle Sortierpfeile in der Tabellenüberschrift zurück
 function resetArrows() {
     const arrows = document.querySelectorAll(".arrow");
     arrows.forEach(arrow => arrow.classList.remove("up"));
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// öffnet eine neue Seite 
 function openTaskInNewPage(taskId) {
     const task = tasks.find(t => t.id === taskId);
     if (!task) return;
 
-    const newWindow = window.open("", "_blank");
-    newWindow.document.write(`
-        <html lang="de">
-        <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Aufgabendetails</title>
-         <style>
-             body { font-family: Arial, sans-serif; padding: 20px; }
-             h1 { color: darkblue; }
-             h2 {color: blue;}
-             p { font-size: 18px; }
-             #task-input1 {
-               width: 300px; 
-               padding: 10px; 
-               margin: 10px 0; 
-               border: 2px solid #ccc; 
-               border-radius: 5px; 
-               font-size: 16px; 
-             }
-             #add-task-button {
-              background-color: whitesmoke; 
-              color: grey; 
-              border: none;
-              height: 40px;
-              width: 163px;
-              border-radius: 5px; 
-              padding: 10px 20px;
-              font-size: 16px; 
-              cursor: pointer;
-             }
-             #add-task-button:hover {
-              background-color: red;
-              color: white;
-             }  
-         </style>
-        </head>
-        <body>
-         <div class="container">
-             <h1>Aufgabendetails zu:</h1>
-             <h2>${task.text}</h2>
-             <input type="text" id="task-input1" placeholder="Neue Aufgabe hinzufügen...">
-             <button id="add-task-button">Hinzufügen</button>
-             <div class="progress-bar">
-                 <div id="progress" class="progress"></div>
-             </div>    
-             <ul id="task-list1"></ul>
+    const taskTitle = encodeURIComponent(task.text);
+    const taskCreated = encodeURIComponent(task.createdAt);
+    const taskDone = encodeURIComponent(task.doneAt || "-");
 
-             <p><strong>Erstellt am:</strong> ${task.createdAt}</p>
-             <p><strong>Erledigt am:</strong> ${task.doneAt || "-"}</p>
-             <button onclick="window.close()">Schließen</button>
-         </div>    
+    const url = `task.html?title=${taskTitle}&created=${taskCreated}&done=${taskDone}`;
+    console.log("Öffne URL", url);
 
-         <script>
-             let tasks1 = [];
-
-
-             function addTask1(text) {
-                 const newTask1 = {
-                     id: Date.now(), 
-                     text: text,
-                     createdAt: new Date().toLocaleString("de-DE"),
-                     doneAt: null,
-                     isDone: false
-                  };
-                  tasks1.push(newTask1);
-                  saveTasks1();
-                  renderTasks1();
-               }
-
-             function toggleTaskDone1(taskId) {
-                 const task = tasks1.find(t => t.id === taskId);
-                 if (task) {
-                     task.isDone = !task.isDone;
-                     task.doneAt = task.isDone ? new Date().toLocaleString("de-DE") : null;
-                     saveTasks1();
-                     renderTasks1();
-                   }
-              }
-
-
-             function deleteTask1(taskId) {
-                 tasks1 = tasks1.filter(t => t.id !== taskId);
-                 saveTasks1();
-                 renderTasks1();
-               }
-
-
-             function saveTasks1() {
-                 localStorage.setItem("tasks1", JSON.stringify(tasks1));
-               }
-
-
-             function loadTasks1() {
-                 tasks1 = JSON.parse(localStorage.getItem("tasks1")) || [];
-                 renderTasks1();
-               }
-
-
-             function renderTasks1() {
-                  const taskList1 = document.getElementById("task-list1");
-                  taskList1.innerHTML = ""; 
-
-                 tasks1.forEach(task => {
-                     const listItem1 = document.createElement("li");
-                     listItem1.classList.add("task-item");
-                     listItem1.textContent = task.text;
-                     listItem1.setAttribute("data-id", task.id);
-                     if (task.isDone) listItem1.classList.add("done");
-
-
-                     listItem1.addEventListener("click", function () {
-                     toggleTaskDone1(task.id);
-                     });
-
-                     const deleteButton1 = document.createElement("button");
-                     deleteButton1.textContent = "Löschen";
-                     deleteButton1.addEventListener("click", function () {
-                     deleteTask1(task.id);
-                     });
-                     listItem1.appendChild(deleteButton1);
-
-                     taskList1.appendChild(listItem1);
-                     });
-               }
-
-             document.getElementById("add-task-button").addEventListener("click", function () {
-                   const taskInput1 = document.getElementById("task-input1");
-                   const taskValue1 = taskInput1.value.trim();
-
-                   if (taskValue1 === "") {
-                      alert("Bitte geben Sie etwas ein, bevor Sie den Button drücken");
-                      return;
-               }
-
-             addTask1(taskValue1);
-             taskInput1.value = "";
-});
-
-document.addEventListener("DOMContentLoaded", loadTasks1);
-
-         </script>
-        </body> 
-        </html>
-    `);
-    newWindow.document.close();
-
-    saveTasks();
-    renderTasks();
+    // Öffne jedes Task-Fenster mit einem eindeutigen Namen basierend auf der taskId
+    window.open(url, `_blank_${taskId}`, "noopener,noreferrer");
 }
 
-document.addEventListener("DOMContentLoaded", loadTasks);
+
+
+

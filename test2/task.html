@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabendetails</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: darkblue; }
+        h2 {color: blue;}
+        p { font-size: 18px; }
+        #task-input1 {
+         width: 300px; 
+        padding: 10px; 
+        margin: 10px 0; 
+        border: 2px solid #ccc; 
+         border-radius: 5px; 
+         font-size: 16px; 
+        }
+        #add-task1-button {
+        background-color: whitesmoke; 
+        color: grey; 
+        border: none;
+        height: 40px;
+        width: 163px;
+        border-radius: 5px; 
+        padding: 10px 20px;
+        font-size: 16px; 
+        cursor: pointer;
+        }
+        #add-task1-button:hover {
+        background-color: red;
+        color: white;
+        }  
+
+        task-item {
+        display:flex;
+        justify-content: space-between;
+        }
+        .progress-container {
+         width: 100%;
+         background-color: #ddd;
+         border-radius: 10px;
+         margin: 10px 0;
+         height: 20px;
+        }
+
+         #progress-bar {
+         height: 100%;
+         width: 0%;
+         background-color: green;
+         border-radius: 10px;
+         transition: width 0.3s ease-in-out;
+        }
+        #progress-bar:hover {
+            background-color: green;
+        }
+        .closeButton {
+        background-color: whitesmoke; 
+        color: grey; 
+        border: none;
+        height: 40px;
+        width: 163px;
+        border-radius: 5px; 
+        padding: 10px 20px;
+        font-size: 16px; 
+        cursor: pointer;
+        }
+        .closeButton:hover {
+         background-color: red;
+         color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aufgabendetails zu:</h1>
+        <h2 id="task-title"></h2>
+        <input type="text" id="task-input1" placeholder="Neue Aufgabe hinzufügen...">
+        <button id="add-task1-button">Hinzufügen</button>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>    
+        <ul id="task-list1"></ul>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <p id="progress-text">0% erledigt</p>
+
+        <p>Erstellt am: <span id="task-created"></span></p>
+        <p>Erledigt am: <span id="task-done"></span></p>
+        <button  class="closeButton" onclick="window.close()">Schließen</button>
+    </div>    
+
+    <script src="task.js"></script>
+                 
+        
+</body>
+</html>
+
+    
+            
+
+
+            

@@ -6,7 +6,6 @@ body {
 }
 
 .todo-container {
-    padding: 40% 40% 40% 40%;
     width: 500px;
     display: flex;
     flex-direction: column;
