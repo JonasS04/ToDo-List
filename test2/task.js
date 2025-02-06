@@ -106,7 +106,6 @@ function deleteTask(taskId) {
 // Aufgaben in localStorage speichern
 function saveTasks() {
     localStorage.setItem("tasks1", JSON.stringify(tasks));
-
 }
 
 
@@ -136,7 +135,7 @@ function saveTasks() {
 // Aufgaben aus localStorage laden
 function loadTasks() {
     const storedTasks = JSON.parse(localStorage.getItem("tasks1")) || [];
-    tasks = storedTasks; // Globale Variable setzen
+    tasks = storedTasks; 
     renderTasks();
     updateProgress();
 }
@@ -169,7 +168,7 @@ function loadTasks() {
 
 
 
-// Aufgabenliste rendern
+
 function renderTasks() {
     const taskList = document.getElementById("task-list1");
     if (!taskList) return;
@@ -347,14 +346,17 @@ document.addEventListener("DOMContentLoaded", function () {
     loadTasks(); // Nur einmal aufrufen!
 
     const params = new URLSearchParams(window.location.search);
-    document.getElementById("task-title").textContent = params.get("title");
-    document.getElementById("task-created").textContent = params.get("created");
-    document.getElementById("task-done").textContent = params.get("done") || "-";
-
-
+    const taskId = params.get("id");
+    const uniqueTaskKey = `task_${taskId}`;
     
-
-
+    const storedTask = JSON.parse(localStorage.getItem(uniqueTaskKey));
+    if (storedTask) {
+        document.getElementById("task-title").textContent = storedTask.text;
+        document.getElementById("task-created").textContent = storedTask.createdAt;
+    } else {
+        console.log("Task nicht im Speicher gefunden");
+    }
+    
     const taskDoneField = document.getElementById("task-done");
     const savedTasks = JSON.parse(localStorage.getItem("tasks1")) || [];
     const completedTask = savedTasks.find(task => task.doneAt);
@@ -363,8 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         taskDoneField.textContent = ""; 
     }
-
-    
     
     const addButton = document.getElementById("add-task1-button");
     if (addButton) {
@@ -384,5 +384,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 

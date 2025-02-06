@@ -8,7 +8,6 @@ function addTask(text) {
         id: Date.now(),
         text: text,
         createdAt: new Date().toLocaleString("de-DE"),
-        doneAt: null,
         isDone: false
     };
     tasks.push(newTask); 
@@ -115,33 +114,20 @@ function renderTasks(filter = "all") {
             createdAtCell.textContent = task.createdAt; 
             row.appendChild(createdAtCell); 
 
-
-
-
             const doneAtCell = document.createElement("td");  
             const storedTasks = JSON.parse(localStorage.getItem("tasks1")) || [];
-            console.log("Suche nach ID:", task.id);
-            console.log("Verfügbare IDs im localStorage:", storedTasks.map(t => t.id));
-            const storedTask = storedTasks.find(t => t.id == task.id);
- 
-           
-
-
-            doneAtCell.textContent = storedTask && storedTask.doneAt ? storedTask.doneAt : "-";
+            const foundTasks = storedTasks.find(t => t.doneAt);
+            //console.log("gefunden", foundTasks)
+            doneAtCell.textContent = foundTasks ? foundTasks.doneAt || "-" : "-";;
             row.appendChild(doneAtCell);
             
-
-
-
-
-
-
+            
             const actionsCell = document.createElement("td"); 
             actionsCell.classList.add("actions"); 
             const deleteButton = document.createElement("button"); 
             deleteButton.textContent = "Löschen"; 
             deleteButton.addEventListener("click", (event) => {
-                event.stopPropagation(); // Verhindert, dass `openTaskInNewPage` aufgerufen wird
+                event.stopPropagation();
                 deleteTask(task.id);
             });
             actionsCell.appendChild(deleteButton); 
@@ -153,6 +139,8 @@ function renderTasks(filter = "all") {
     if (lastSortedColumn !== null) { 
         sortTable(lastSortedColumn, true);
     }
+   
+    
 }
 
 
@@ -184,13 +172,13 @@ function renderTasks(filter = "all") {
 function toggleTaskDone(taskId) {
     const task = tasks.find(t => t.id === taskId);
     if (task) {
-        task.isDone = !task.isDone;
-        task.doneAt = task.isDone ? new Date().toLocaleString("de-DE") : null;
+        task.isDone = true
         saveTasks();
         renderTasks();
+        updateProgress();
+       
     }
 }
-
 
 
 
@@ -394,14 +382,17 @@ function openTaskInNewPage(taskId) {
 
     const taskTitle = encodeURIComponent(task.text);
     const taskCreated = encodeURIComponent(task.createdAt);
-    const taskDone = encodeURIComponent(task.doneAt || "-");
-
-    const url = `task.html?title=${taskTitle}&created=${taskCreated}&done=${taskDone}`;
+    const uniqueTaskKey = `task_${taskId}`;
+    
+    // Speichern der Task-Daten im localStorage mit einer eindeutigen ID
+    localStorage.setItem(uniqueTaskKey, JSON.stringify(task));
+    
+    const url = `task.html?title=${taskTitle}&created=${taskCreated}&id=${taskId}`;
     console.log("Öffne URL", url);
-
-    // Öffne jedes Task-Fenster mit einem eindeutigen Namen basierend auf der taskId
+    
     window.open(url, `_blank_${taskId}`, "noopener,noreferrer");
 }
+
 
 
 
