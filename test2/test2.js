@@ -115,12 +115,18 @@ function renderTasks(filter = "all") {
             row.appendChild(createdAtCell); 
 
             const doneAtCell = document.createElement("td");  
-            const storedTasks = JSON.parse(localStorage.getItem("tasks1")) || [];
-            const foundTasks = storedTasks.find(t => t.doneAt);
-            //console.log("gefunden", foundTasks)
-            doneAtCell.textContent = foundTasks ? foundTasks.doneAt || "-" : "-";;
+            const storedTasks = JSON.parse(localStorage.getItem(`tasks_${task.id}`)) || []; 
+            const allDone = storedTasks.length > 0 && storedTasks.every(t => t.isDone);
+            doneAtCell.textContent = allDone ? storedTasks[0].doneAt || "-" : "-"; 
             row.appendChild(doneAtCell);
-            
+            if (allDone) {
+                task.isDone = true;
+               saveTasks();
+            }
+            else {
+                task.isDone = false;
+                saveTasks();
+            }
             
             const actionsCell = document.createElement("td"); 
             actionsCell.classList.add("actions"); 
@@ -139,8 +145,6 @@ function renderTasks(filter = "all") {
     if (lastSortedColumn !== null) { 
         sortTable(lastSortedColumn, true);
     }
-   
-    
 }
 
 
@@ -297,7 +301,7 @@ document.getElementById("show-not-done-button").addEventListener("click", () => 
 
 
 
-let sortDirections = [false, false, false];
+
 
 // führt den enthaltenden Code aus sobald das HTML Element vollständig geladen wurde
 document.addEventListener("DOMContentLoaded", function () {
@@ -310,6 +314,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let sortDirections = [false, false, false];
 // sorgt dafür das die einzelnen Zeilen sortiert werden
 function sortTable(columnIndex, keepDirection = false) {
     const table = document.getElementById("task-table");
@@ -392,7 +425,6 @@ function openTaskInNewPage(taskId) {
     
     window.open(url, `_blank_${taskId}`, "noopener,noreferrer");
 }
-
 
 
 
