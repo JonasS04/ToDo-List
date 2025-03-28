@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aufgabendetails</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
+       body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh; 
+         margin: 0;
+         background-color: lightgray;
+        }
         h1 { color: darkblue; }
         h2 {color: blue;}
         p { font-size: 18px; }
+
+        .container {
+            background-color: white;
+            width: 50%;
+            min-height: 50%; /* Mindesthöhe setzen */
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow-y: auto; /* Falls nötig, wird ein Scrollbalken angezeigt */
+            max-height: 80vh; /* Verhindert, dass der Container zu groß wird */
+            border: 2px solid black; 
+        }
+        
+
+
+
+
         #task-input1 {
          width: 300px; 
         padding: 10px; 
@@ -16,6 +41,7 @@
         border: 2px solid #ccc; 
          border-radius: 5px; 
          font-size: 16px; 
+         border: 2px solid black; 
         }
         #add-task1-button {
         background-color: whitesmoke; 
@@ -27,6 +53,7 @@
         padding: 10px 20px;
         font-size: 16px; 
         cursor: pointer;
+        border: 2px solid black; 
         }
         #add-task1-button:hover {
         background-color: red;
@@ -42,6 +69,7 @@
         padding: 10px 20px;
         font-size: 16px; 
         cursor: pointer;
+        border: 2px solid black; 
         }
         #without:hover {
         background-color: red;
@@ -51,6 +79,7 @@
         task-item {
         display:flex;
         justify-content: space-between;
+        border: 2px solid black; 
         }
         .progress-container {
          width: 100%;
@@ -58,6 +87,7 @@
          border-radius: 10px;
          margin: 10px 0;
          height: 20px;
+         border: 2px solid black; 
         }
 
          #progress-bar {
@@ -73,7 +103,7 @@
         .closeButton {
         background-color: whitesmoke; 
         color: grey; 
-        border: none;
+        border: 2px solid black; 
         height: 40px;
         width: 163px;
         border-radius: 5px; 
@@ -85,19 +115,297 @@
          background-color: red;
          color: white;
         }
+#task-list1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    list-style-type: none; /* Entfernt Standardpunkte bei <ul> */
+}
+
+.li {
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 370px;
+    display: flex;
+    justify-content: flex-start; /* Inhalt links ausrichten */
+    align-items: center; /* Alle Elemente in der Höhe zentrieren */
+    min-height: 50px; /* Mindesthöhe für gleichmäßige Größe */
+    box-sizing: border-box; /* Verhindert, dass Padding die Größe beeinflusst */
+    border: 2px solid black; 
+}
+
+.li span {
+    flex-grow: 1; /* Damit der Text den Platz nutzt */
+    text-align: left; /* Sicherstellen, dass Text links ausgerichtet ist */
+    white-space: wrap; /* Kein Umbruch */
+    margin-left: 20px;
+   
+}
+     
+.checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #333;
+        border-radius: 8px;
+        position: relative;
+        cursor: pointer;
+        background-color: white;
+        } 
+.checkbox:hover {
+            border-color: lawngreen;
+}
+.done {
+            background-color: lawngreen;
+            color: black;
+}
+.checkbox:after {
+           position: absolute;
+           display: none;
+           left: 6px;
+           top: 2px;
+           width: 5px;
+           height: 10px;
+           border: solid white;
+           border-width: 0 3px 3px 0;
+           transform: rotate(45deg);
+}
+.deleteButton {
+            background-color: lightgrey; 
+            color: white; 
+            border: none;
+            height: 40px;
+            width: 163px;
+            border-radius: 5px; 
+            padding: 10px 20px;
+            font-size: 16px; 
+            cursor: pointer;
+}
+.deleteButton:hover {
+            background-color: red;
+            color: white;
+}
+      
+.closeButton {
+        margin-bottom: 15px;
+}
+.listdiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -350px; 
+    width: 250px;
+    height: 100%;
+    background-color: #222;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    border: 2px solid black; 
+}
+
+.sidebar.show {
+    left: 0;
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid black; 
+}
+
+#menu-button {
+    position: fixed;
+    width: 100px;
+    top: 20px;
+    left: 2px;
+    background: none; 
+   border: none;
+    cursor: pointer;
+    color: black;
+    font-size: 30px;
+}
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+   
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+   padding: 10px;
+   margin-top: 15px;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: start;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: red;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .dark-mode .sidebar.show {
+  background-color: #333;
+  color: white;
+  border: 2px solid black; 
+}
+
+
+.dark-mode {
+  background-color: black;
+ 
+}
+.dark-mode .todo-container {
+  background-color: #222;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #menu-button {
+  position: fixed;
+  width: 100px;
+  top: 20px;
+  left: 2px;
+  background: none;  
+  border: none;  
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+}
+.dark-mode .container {
+    background-color: #222;
+    color: white;
+    border: 2px solid white; 
+}
+.dark-mode #task-input1 {
+  background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #add-task1-button {
+  background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode #without {
+    background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode .progress-container {
+    background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode .closeButton {
+    background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode h1 {
+    color: white;
+}
+.dark-mode h2 {
+    color: white;
+}
+.dark-mode .li {
+    background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode .deleteButton {
+    background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode .done {
+            background-color: lawngreen;
+            color: black;
+        }
+.dark-mode #add-task1-button:hover {
+        background-color: red;
+        color: white;
+        }  
+ .dark-mode #without:hover {
+        background-color: red;
+        color: white;
+        }  
+.dark-mode .closeButton:hover {
+  background-color: red;
+  color: white;
+}
+
+
+
+
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Aufgabendetails zu:</h1>
         <h2 id="task-title"></h2>
         <input type="text" id="task-input1" placeholder="Neue Aufgabe hinzufügen...">
         <button id="add-task1-button">Hinzufügen</button>
+
+        <div class="listdiv">
+            <ul id="task-list1"></ul>
+        </div>
+        
+        <button id="without">Ohne Unteraufgaben erledigen</button>
         <div class="progress-bar">
             <div id="progress" class="progress"></div>
         </div>    
-        <ul id="task-list1"></ul>
-        <button id="without">Ohne Unteraufgaben erledigen</button>
+       
         <div class="progress-container">
             <div id="progress-bar"></div>
         </div>
@@ -105,8 +413,21 @@
 
         <p>Erstellt am: <span id="task-created"></span></p>
         <p>Erledigt am: <span id="task-done"></span></p>
-        <button  class="closeButton" onclick="window.close()">Schließen</button>
+        <button class="closeButton" onclick="window.history.back();">Schließen</button>
     </div>    
+
+    <button id="menu-button">☰</button>
+
+    <div id="sidebar" class="sidebar">
+      <button id="close-button">✖</button>
+      <ul>
+         <li><a href="test2.html">🏠 Startseite</a></li>
+         <li><a id="switch" href="#">🌙 Darkmode</a></li>
+         <li><a href="einstellungen.html">⚙️ Einstellungen</a></li>
+         <li><a href="help.html">❓ Fragen&Antworten</a></li>
+         <li><a href="felix.html">🚪 Logout</a></li>
+      </ul>
+    </div>
 
     <script src="task.js"></script>
                  

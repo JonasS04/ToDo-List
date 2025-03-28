@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do-Liste</title>
     <link rel="stylesheet" href="test2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
+     
+  
 
     <div class="todo-container">
         <h1>To-Do List</h1>
@@ -14,9 +19,13 @@
           <input type="text" id="task-input" placeholder="Neue Aufgabe hinzufügen...">
           <button id="add-task-button">Hinzufügen</button>
           <br>
+
+         
           <button id="show-done-button">Erledigt</button>
         <button id="show-not-done-button">Unerledigt</button>
-        <button id="show-all-button">Zurücksetzen</button>
+        <button id="show-all-button">Standart</button>
+        <button id="show-filter-button">Nach Tags</button><br>
+        <button id="showAfterPrio">Nach Prio</button>
         </div>
 
         <div class="table-container">
@@ -25,17 +34,22 @@
                  <tr>
                      <th>
                          Aufgaben
-                         <span class="arrow">&#9660</span>
+                         <span class="arrow1">&#9660</span>
                       </th>
                       <th>
                          Erstellt am
-                         <span class="arrow">&#9660</span>
+                         <span class="arrow2" id="arrow2">&#9660</span>
                       </th>
                       <th>
                          Erledigt am
-                         <span class="arrow">&#9660</span>
+                         <span class="arrow3">&#9660</span>
                       </th>
-                      <th>Bearbeiten</th>
+                      <th>
+                        Bearbeiten
+                     </th>
+                     <th>
+                        Tags
+                     </th>
                       </tr>
             </thead>
             <tbody>
@@ -43,8 +57,279 @@
             </tbody>
         </table>
         </div>
-      </div>
-    
+      </div></br>
 
-    <script src="test2.js"></script>
+    </br>
+
+   
+<button id="menu-button">☰</button>
+
+<div id="sidebar" class="sidebar">
+  <button id="close-button">✖</button>
+  <ul>
+      <li><a href="test2.html">🏠 Startseite</a></li>
+      <li><a id="switch" href="#">🌙 Darkmode</a></li>
+      <li>
+        <a href="#" id="addTag">🎯 Tags bearbeiten</a>
+      </li>
+      <li><a href="#" id="searchToDo">🔎 To-Do Suchen
+      </a></li>
+      <li>
+        <a href="#" id="analysToDo">📊 To-Dos Analysieren</a>
+      </li>
+      <li><a href="#" id="exportToDo">📅 To-Do Exportieren</a></li>
+      <li><a href="#" id="legendShow">🏛️ Legende Anzeigen</a></li>
+      <li><a href="help.html">❓ Fragen&Antworten</a></li>
+        <li><a href="einstellun.html">⚙️ Einstellungen</a></li>
+      <li><a id="logout" href="felix.html">🚪 Logout</a></li>
+  </ul>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+
+
+     <a   id="addTag1">⏳ Tags erstellen</a></br>
+     <br>
+     <a   id="addTag2">⚡ Tags bearbeiten</a></br>
+     <br>
+     <a   id="addTag3">🔠 Nach Tags sortieren</a>
+
+      <div id="tagErstellen" class="tagErstellen">
+        <div class="erstellenContent"> 
+
+          <h3>Tags erstellen</h3>
+          <input type="color" id="color-picker" value="#ffffff"> <!-- Farb-Picker -->
+          <input type="text" id="task-input-tags" placeholder="Neues Tag hinzufügen...">
+          <button id="add-tags-button">Hinzufügen</button>
+          <span class="close2">&times;</span>
+
+        </div>
+      </div>  
+
+
+      <div id="tagBearbeiten" class="tagBearbeiten">
+         <div class="bearbeitenContent">
+
+           <h3>Ihre Tags</h3>
+           <ul id="tagList">
+
+           </ul> 
+           <span class="close3">&times;</span>
+
+       </div>
+     </div>
+
+     <br>
+     <span id="close4" class="close4">&times;</span>
+
+    </div>
+</div>        
+
+<div id="tagFiltern" class="tagFiltern">
+  <div class="filtern">
+
+    <h3>Nach Tags sortieren</h3>
+    <ul id="tagListFiltern">
+
+    </ul> 
+    <button id="showAllToDo">Rückgängig</button>
+    <span class="close10">&times;</span>
+
+   </div>
+</div>
+
+<br>
+
+
+</div>
+</div>  
+
+
+<div id="tagContainer" class="tagContainer">
+        <h3>Tags zuweißen</h3>
+        <div id="checkboxContainer"></div>
+        <br>
+        <span id="close6" class="close6">&times;</span>
+ </div> 
+
+<div id="bearbeitenContainer" class="bearbeitenContainer">
+  <h3> To-Do Bearbeiten</h3>
+  <div id="GeneralContainer"></div>
+  <br>
+  <a   id="tagBearbeiten1">⏰ Fälligkeits Datum</a><br>
+  <br>
+  <a   id="tagBearbeiten2">⌨️ Notizen erstellen</a>
+  <br>
+  <br>
+  <a   id="tagBearbeiten3">🚨 Aufgaben Priorität</a>
+  <br>
+  <span id="close15" class="close15">&times;</span>
+</div> 
+
+<div id="datumContainer" class="datumContainer">
+  <div class="datum">
+
+    <h3>Fälligkeits Datum hinzufügen</h3>
+    <input id="dateId" type="datetime-local"><br>
+    <p id="dateText"></p>
+    
+    
+    <span class="close18">&times;</span>
+
+   </div>
+</div>
+
+<div id="notizenContainer" class="notizenContainer">
+  <div class="notizen">
+
+    <h3>Notizen hinzufügen</h3>
+    <input id="noteId" type="text" value=""><button id="checkNote">-></button>
+    <p id="noteText"></p>
+    
+    
+    <span class="close30">&times;</span>
+
+   </div>
+</div>
+
+<div id="infoContainer" class="infoContainer">
+  <div class="info1">
+
+    <h3>To-Do Informationen</h3>
+   
+    <a   id="dateInformation">⏰ Fälligkeits Datum </a><br>
+  
+    <ul id="dateUl">
+      
+    </ul>
+   
+    <br>
+    <a   id="noteInformation">⌨️ To-Do Notizen</a><br>
+
+    <ul id="noteUl">
+      
+    </ul>
+    <br>
+    <a   id="prioInformation">🚨 Aufgaben Priorität</a><br>
+
+    <ul id="prioUl">
+
+    </ul>
+
+    
+    <span class="close34">&times;</span>
+
+   </div>
+</div>
+
+<div id="searchContainer" class="searchContainer">
+  <div class="search">
+    <h3>To-Do Suchen</h3>
+    <input type="text" id="searchInput" placeholder="To-Do eingeben..." />
+    <ul id="searchResults"></ul>
+    <br>
+    <button id="showAllOfYouSearch">Rückgängig</button>
+    <span class="close50">&times;</span>
+  </div>
+</div>
+
+<div id="analysContainer" class="analysContainer">
+  <div class="analys">
+
+    <h3>To-Dos auswerten</h3>
+    
+  
+    <canvas id="myChart" width="400" height="400"></canvas><br>
+    <h3>Ihre Unerledigten To-Dos</h3>
+    <ul id="whichAreUnresolved">
+
+      
+      
+    </ul><br>
+    <br>
+    <canvas id="myChart1" width="400" height="400"></canvas><br>
+    <h3>Diese Tags stehen ihnen zur Verfügung</h3>
+    <ul id="theseAreTheTags">
+
+    </ul>
+    <span class="close80">&times;</span>
+
+   </div>
+</div>
+
+<div id="exportContainer" class="exportContainer">
+  <div class="export">
+
+    <h3>To-Do Exportieren</h3>
+    
+    <select id="todoSelect">
+      <option id="option" value="" disabled selected>Wähle eine Aufgabe aus</option>
+  </select><br>
+  
+  <button id="exportButton" onclick="addSelectedToCalendar()">📅 In Google Kalender eintragen</button>
+  <br>
+  <button id="exportPDFButton">📄 Als PDF speichern</button>
+  <br>
+  <button id="exportExcelButton">📂 Nach Excel exportieren</button>
+        
+        <span class="close90">&times;</span>
+    
+       </div>
+    </div>
+    
+    
+   
+
+   </div>
+</div>
+
+<div id="prioContainer" class="prioContainer">
+  <div class="prio">
+    <h3>Priorität hinzufügen</h3>
+
+    <label for="options">Wähle eine Option:</label>
+    <select id="options">
+      <option value="-">-</option>
+       <option value="hoch">Hoch</option>
+       <option value="mittel">Mittel</option>
+       <option value="schwach">Schwach</option>
+    </select>
+   
+    <span class="close100">&times;</span>
+  </div>
+</div>
+
+<div id="prioContainerFilter" class="prioContainerFilter">
+  <div class="prioFilter">
+
+    <h3>Nach Priorität Filtern</h3>
+    <label for="options">Wähle eine Option:</label>
+    <select id="optionsFilter">
+      <option value="-">-</option>
+       <option value="hoch">Hoch</option>
+       <option value="mittel">Mittel</option>
+       <option value="schwach">Schwach</option>
+    </select>
+    <button id="showAllOfYou">Rückgängig</button>
+    
+    <span class="close200">&times;</span>
+
+   </div>
+</div>
+
+<div id="legendContainer" class="legendContainer">
+  <div class="legend">
+    <span class="close300">&times;</span>
+    
+    <div class="color-box" style="background-color: red;"></div><p>Abgelaufen</p>
+    <div class="color-box" style="background-color: white;"></div><p>Offen</p>
+    <div class="color-box" style="background-color: lawngreen;"></div>Erledigt
+    
+  
+    
+  </div>
+</div>
+
+<script src="test2.js"></script>
 </body>

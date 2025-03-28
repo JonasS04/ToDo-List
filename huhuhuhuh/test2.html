@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-Liste</title>
+    <link rel="stylesheet" href="test2.css">
+</head>
+<body>
+     
+  
+
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+          <input type="text" id="task-input" placeholder="Neue Aufgabe hinzufügen...">
+          <button id="add-task-button">Hinzufügen</button>
+          <br>
+
+         
+          <button id="show-done-button">Erledigt</button>
+        <button id="show-not-done-button">Unerledigt</button>
+        <button id="show-all-button">Standart</button>
+        <button id="show-filter-button">Nach Tags</button>
+        </div>
+
+        <div class="table-container">
+          <table id="task-table">
+             <thead>
+                 <tr>
+                     <th>
+                         Aufgaben
+                         <span class="arrow1">&#9660</span>
+                      </th>
+                      <th>
+                         Erstellt am
+                         <span class="arrow2">&#9660</span>
+                      </th>
+                      <th>
+                         Erledigt am
+                         <span class="arrow3">&#9660</span>
+                      </th>
+                      <th>
+                        Bearbeiten
+                     </th>
+                     <th>
+                        Tag
+                     </th>
+                      </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        </div>
+      </div></br>
+
+    </br>
+
+   
+<button id="menu-button">☰</button>
+
+<div id="sidebar" class="sidebar">
+  <button id="close-button">✖</button>
+  <ul>
+      <li><a href="test2.html">🏠 Startseite</a></li>
+      <li><a id="switch" href="#">🌙 Darkmode</a></li>
+      <li>
+        <a href="#" id="addTag">🎯 Tags bearbeiten</a>
+      </li>
+      <li><a href="einstellungen.html">⚙️ Einstellungen</a></li>
+      <li><a href="help.html">❓ Fragen&Antworten</a></li>
+      <li><a href="felix.html">🚪 Logout</a></li>
+  </ul>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+
+
+     <a   id="addTag1">⏳ Tags erstellen</a></br>
+     <a   id="addTag2">⚡ Tags bearbeiten</a></br>
+     <a   id="addTag3">🔠 Nach Tags sortieren</a>
+
+      <div id="tagErstellen" class="tagErstellen">
+        <div class="erstellenContent"> 
+
+          <h3>Tags erstellen</h3>
+          <input type="color" id="color-picker" value="#ffffff"> <!-- Farb-Picker -->
+          <input type="text" id="task-input-tags" placeholder="Neues Tag hinzufügen...">
+          <button id="add-tags-button">Hinzufügen</button>
+          <span class="close2">&times;</span>
+
+        </div>
+      </div>  
+
+
+      <div id="tagBearbeiten" class="tagBearbeiten">
+         <div class="bearbeitenContent">
+
+           <h3>Ihre Tags</h3>
+           <ul id="tagList">
+
+           </ul> 
+           <span class="close3">&times;</span>
+
+       </div>
+     </div>
+
+     <br>
+     <span id="close4" class="close4">&times;</span>
+
+    </div>
+</div>        
+
+<div id="tagFiltern" class="tagFiltern">
+  <div class="filtern">
+
+    <h3>Nach Tags sortieren</h3>
+    <ul id="tagListFiltern">
+
+    </ul> 
+    <button id="showAllToDo">Rückgängig</button>
+    <span class="close10">&times;</span>
+
+</div>
+</div>
+
+<br>
+
+
+</div>
+</div>  
+
+
+<div id="tagContainer" class="tagContainer">
+        <h3>Tags zuweißen</h3>
+        <div id="checkboxContainer"></div>
+        <p>Ausgewählte Tags <span id="selectedToppings"></span></p>
+        <br>
+        <span id="close6" class="close6">&times;</span>
+ </div> 
+
+    <script src="test2.js"></script>
+</body>

@@ -1,89 +1,1353 @@
 body {
-    padding: 0;
-    margin: 0;
-    background-color: lightgrey;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
+  background-color: lightgray;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dark-mode .sidebar.show,
+.dark-mode .sidebar.show * {  
+    background-color: #222;
+    color: white !important;  
+    
+}
+.dark-mode .sidebar ul li a:hover {
+  background-color: red;
+  color: white;
+}
+
+.dark-mode {
+background-color: black;
+
+}
+.dark-mode .todo-container {
+background-color: #222;
+color: white;
+border: 2px solid white; 
+}
+.dark-mode #menu-button {
+position: fixed;
+width: 100px;
+top: 20px;
+left: 2px;
+background: none;  
+border: none;  
+cursor: pointer;
+color: white;
+font-size: 30px;
+}
+.dark-mode #task-input {
+background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+
+.dark-mode #add-task-button {
+background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #show-done-button {
+background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #show-not-done-button {
+background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #show-all-button  {
+background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #showAllToDo {
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+
+
+.dark-mode #show-filter-button  {
+  background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode #task-table tbody tr {
+  background-color: #333;
+  color: white;
+ 
+}
+
+.dark-mode th {
+background-color: #333;
+color: white;
+border: 2px solid white; 
+}
+.dark-mode td {
+  background-color: #333;
+color: white;
+border: 2px solid white; 
+}
+.dark-mode #popup {
+  background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #tagErstellen {
+  background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #color-picker {
+  background-color: #333;
+  color: white;
+}
+.dark-mode #task-input-tags {
+  background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode #tagBearbeiten {
+  background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #tagFiltern {
+  background-color: #333;
+  color: white;
+  border: 2px solid white; 
+}
+.dark-mode #tagContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode label {
+  color: white !important;
+}
+.dark-mode .close2 {
+  color: white;
+}
+.dark-mode .close3 {
+  color: white;
+}
+.dark-mode .close4 {
+  color: white;
+}
+.dark-mode .close6 {
+  color: white;
+}
+.dark-mode .close10 {
+  color: white;
+}
+.dark-mode #searchContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #searchInput {
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #showAllOfYouSearch {
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #analysContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #exportContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #exportButton{
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #exportPDFButton{
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #exportExcelButton{
+  background-color: #333;
+color: white;
+border: 2px solid #ccc; 
+}
+.dark-mode #todoSelect {
+  background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode .close90 {
+  color: white;
+}
+.dark-mode .close80 {
+  color: white;
+}
+.dark-mode .close50 {
+  color: white;
+}
+.dark-mode #showAfterPrio {
+  background-color: #333;
+  color: white;
+  border: 2px solid #ccc; 
+}
+.dark-mode #bearbeitenContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #datumContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #notizenContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #infoContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #prioContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #prioContainerFilter {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode #legendContainer {
+  background-color: #333 !important;
+  color: white !important;
+  border: 2px solid white; 
+}
+.dark-mode .close300 {
+  color: white;
+}
+
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar.show {
+  left: 0;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black; 
+}
+
+#menu-button {
+  position: fixed;
+  width: 100px;
+  top: 20px;
+  left: 2px;
+  background: none; 
+  border: none;  
+  cursor: pointer;
+  color: black;
+  font-size: 30px;
+}
+
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+ padding: 10px;
+ margin-top: 15px;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: start;
+}
+
+.sidebar ul li a:hover {
+  background-color: red;
+  color: white;
+}
+
+
+
+
+
+
+
+#tagContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+
+#tagContainer.showTag {
+  position: fixed;
+  top: 0;
+  right: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+
+#bearbeitenContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#bearbeitenContainer.showTag {
+  position: fixed;
+  top: 0;
+  right: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#datumContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#datumContainer.showTag {
+  position: fixed;
+  top: 0;
+  right: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#notizenContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#notizenContainer.showTag {
+  position: fixed;
+  top: 0;
+  right: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+
+#infoContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#infoContainer.showTag {
+  position: fixed;
+  top: 0;
+  right: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#analysContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#analysContainer.showTag {
+  position: fixed;
+  top: 0;
+  left: 0px; 
+  width: 250px;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+  overflow-y: auto; 
+}
+#searchContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#searchContainer.showTag {
+  position: fixed;
+  top: 0;
+  left: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#searchInput {
+  width: 90%; 
+
+
+border: 2px solid black; /* Schwarzer Rand */
+border-radius: 5px; 
+font-size: 16px; 
+}
+#exportContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#exportContainer.showTag {
+  position: fixed;
+  top: 0;
+  left: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#prioContainer {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#prioContainer.showTag {
+  position: fixed;
+  top: 0;
+  left: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+#legendContainer {
+  position: fixed;
+  bottom: -1000px;
+  width: 100%;
+  height: 10%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#legendContainer.showTag {
+  display: flex;
+  justify-content: center; /* Zentriert die gesamte Legende horizontal */
+  align-items: center; /* Zentriert die Legende vertikal */
+  width: 100%;
+  height: 6%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  border: 2px solid black;
+  
+}
+#prioContainerFilter {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+#prioContainerFilter.showTag {
+  position: fixed;
+  top: 0;
+  left: 0px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  cursor: pointer;
+}
+.close15{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close100{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close200{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close90{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close80{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close50{
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close34 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close1 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close2 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close300 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close10 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close30 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close3 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close18 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+
+.tagErstellen {
+  position: fixed;
+  top: 0;
+  left: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+.tagErstellen.show1 {
+  left: 0px;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black; 
+}
+
+.tagBearbeiten {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+
+.tagBearbeiten.show2 {
+  left: 0px;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black; 
+}
+
+.tagFiltern {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+
+.tagFiltern.show10 {
+  left: 0px;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black; 
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: -350px; 
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  border: 2px solid black; 
+  
+}
+
+.popup-content {
+  text-align: center;
+  margin-top:15px;
+
+}
+
+.close {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+
+#tagInput {
+
+padding: 10px; 
+margin: 10px 0; 
+border: 2px solid #ccc; 
+border-radius: 5px; 
+font-size: 16px; 
+}
+.popup.show3 {
+  left: 0;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black; 
+}
+/* Stil für die Tag-Liste */
+#tagList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#tagList li {
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover-Effekt für Tags */
+#tagList li:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+#tagListFiltern {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#tagListFiltern li {
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover-Effekt für Tags */
+#tagListFiltern li:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+
+/* Stil für das Label */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+/* Stil für den Farb-Picker */
+#colorPicker {
+  width: 50px;
+  height: 30px;
+  border: 2px solid black; 
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover-Effekt */
+#colorPicker:hover {
+  transform: scale(1.1);
+}
+
+
+
+.delete-Task-Button {
+
+  background-color: whitesmoke; 
+  color: grey; 
+  border: none;
+  height: 20px;
+  width: 50px;
+  font-size: 10px; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-Task-Button:hover {
+  background-color: whitesmoke;
+  color: grey;
+}
+
+
+
+
+.close4 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+.close4.notShow {
+  display: none;
+}
+
+
+
+
+
+
+
 
 .todo-container {
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-.table-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
+  background-color: white;
+  width: 50%;
+  min-height: 40%; /* Mindesthöhe setzen */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  overflow-y: auto; 
+  max-height: 80vh; 
+  position: relative; /* Wichtig für das X */
+  border: 2px solid black; 
 }
 
+.close6 {
+  position: absolute;
+  top: 10px;  /* Abstand von oben */
+  right: 10px; /* Abstand von rechts */
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black; /* Farbe des X */
+  font-weight: bold;
+}
+
+
+#dateUl{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die Listenelemente */
+}
+.dateLiElement {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: orange; /* Heller Hintergrund */
+  padding: 12px 16px;
+  margin: 8px auto; /* Zentriert das Element horizontal */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 80%; /* Passt die Breite an */
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+
+.dateLiElement:hover{
+  transform: scale(1.05); /* Leichte Vergrößerung */
+}
+.deleteButtonDate {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 70px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.deleteButtonDate:hover {
+  background-color: red;
+color: white;
+}
+
+#noteUl{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die Listenelemente */
+}
+.noteLiElement {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: orange; /* Heller Hintergrund */
+  padding: 12px 16px;
+  margin: 8px auto; /* Zentriert das Element horizontal */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 80%; /* Passt die Breite an */
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+
+.noteLiElement:hover{
+  transform: scale(1.05); /* Leichte Vergrößerung */
+}
+.deleteButtonNote {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 70px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.deleteButtonNote:hover {
+  background-color: red;
+color: white;
+}
+
+
+
+
+
+#searchResults{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die Listenelemente */
+}
+.listforSearch {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: orange; /* Heller Hintergrund */
+  padding: 12px 16px;
+  margin: 8px auto; /* Zentriert das Element horizontal */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 80%; /* Passt die Breite an */
+  height: 35px;
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+
+.listforSearch:hover{
+  transform: scale(1.05); /* Leichte Vergrößerung */
+}
+.buttonforSearch {
+  background-color: whitesmoke; 
+  color: grey; 
+  height: 20px;
+  border: 2px solid black; /* Schwarzer Rand */
+  border-radius: 5px; 
+  height: 30px;
+  font-size: 13px; 
+  cursor: pointer;
+  width: 100px;
+
+}
+.buttonforSearch:hover {
+background-color: red;
+color: white;
+}
+
+
+
+
+
+
+
+
+
+.deleteButtonTags {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: none;
+  height: 20px;
+  width: 60px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.deleteButtonTags:hover {
+  background-color: red;
+  color: white;
+}
+#showAllToDo {
+  display: block;
+  margin: 15px auto; /* Automatische Zentrierung */
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 163px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+#showAllToDo:hover {
+  background-color: red;
+  color: white;
+}
+#showAllOfYou {
+  display: block;
+  margin: 15px auto; /* Automatische Zentrierung */
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 163px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+#showAllOfYou:hover {
+  background-color: red;
+  color: white;
+}
+#showAllOfYouSearch {
+  display: block;
+  margin: 15px auto; /* Automatische Zentrierung */
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 163px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+#showAllOfYouSearch:hover {
+  background-color: red;
+  color: white;
+}
+#showAfterPrio {
+  display: block;
+  margin-top: 5px; /* Automatische Zentrierung */
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: auto;
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 40px;
+  width: 163px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+}
+#showAfterPrio:hover {
+  background-color: red;
+  color: white;
+}
+#showAfterPrio.active {
+  background-color: red;
+  color: white;
+}
+
+
+
+
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  flex-grow: 1;
+}
 
 table {
-    width: 50%;
-    max-width: 50%;
-    min-width: 50%;
-    margin-top: 10px;
-    border-collapse: collapse;
+  width: 85%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-collapse: collapse;
 }
+
 #task-table tbody tr {
-    height: 50px;
+  height: 50px;
 }
+
 #task-table tbody td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
+
 th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    width: 20%;
+  border: 3px solid #000; /* Dickere Rahmen */
+  padding: 10px;
+  text-align: center;
+  width: 20%;
+  vertical-align: middle;
 }
 tbody {
-    background-color: white;
+  background-color: white;
 }
-th {
-    background-color: white;
-    cursor: pointer;
-}
+
+
+
 tr, td {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 tr.done td {
-    color: black;
-    background-color: lawngreen;
-    cursor: pointer;
+  color: black;
+  background-color: lawngreen;
+  cursor: pointer;
+}
+tr.zero td {
+  color: black;
+  background-color: red;
+  cursor: pointer;
+}
+tr.find td {
+  color: black;
+  background-color: blue;
+  cursor: pointer;
 }
 .actions button {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
-th:hover {
-    background-color: lightcoral;
-    color: white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.arrow1 {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
 }
-.arrow {
-    display: inline-block;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
+.arrow2 {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
 }
-.arrow.up {
-    transform: rotate(180deg);
+.arrow2.active {
+  color: red; /* Deutlich erkennbar */
+  font-weight: bold; /* Falls du eine stärkere Hervorhebung möchtest */
+  transform: scale(1.3); /* Leicht vergrößert für bessere Sichtbarkeit */
 }
+
+.arrow3 {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+
+}
+.arrow1.up {
+  transform: rotate(180deg);
+}
+.arrow2.up {
+  transform: rotate(180deg);
+}
+.arrow3.up {
+  transform: rotate(180deg);
+}
+.up {
+  color: red;
+}
+.down {
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #task-input {
-  width: 300px; 
-  padding: 10px; 
-  margin: 10px 0; 
-  border: 2px solid #ccc; 
-  border-radius: 5px; 
-  font-size: 16px; 
+width: 300px; 
+padding: 10px; 
+margin: 10px 0; 
+border: 2px solid black; /* Schwarzer Rand */
+border-radius: 5px; 
+font-size: 16px; 
 }
 #add-task-button {
   background-color: whitesmoke; 
   color: grey; 
-  border: none;
+  border: 2px solid black; /* Schwarzer Rand */
   height: 40px;
   width: 163px;
   border-radius: 5px; 
@@ -92,75 +1356,456 @@ th:hover {
   cursor: pointer;
 }
 #add-task-button:hover {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
-button {
-    background-color: grey; 
-    color: white; 
-    border: none;
-    height: 40px;
-    border-radius: 5px; 
-    padding: 10px 20px;
-    margin-top: 0;
-    font-size: 16px; 
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 2.5px;
-}
-button:hover {
-    background-color: red;
-    color: white;
-}
+.deleteButton {
+  background-color: grey; 
+  color: white; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 30px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  margin-top: 0;
+  font-size: 14px; 
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 2.5px;
 
-
+}
+.deleteButton:hover {
+  background-color: red;
+  color: white;
+}
+.bearebiten {
+  background-color: grey; 
+  color: white; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 30px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  margin-top: 0;
+  font-size: 14px; 
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 2.5px;
+}
+.bearebiten:hover {
+  background-color: red;
+  color: white;
+}
+.info {
+  background-color: grey; 
+  color: white; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 30px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  margin-top: 0;
+  font-size: 14px; 
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 2.5px;
+}
+.info:hover {
+  background-color: red;
+  color: white;
+}
 #show-done-button {
-  background-color: white; 
+  background-color: whitesmoke; 
   color: grey; 
   height: 40px;
-  border: none;
+  border: 2px solid black; /* Schwarzer Rand */
   border-radius: 5px; 
   padding: 10px 20px;
   font-size: 16px; 
   cursor: pointer;
-  width: 32%;
+  width: 20%;
   margin-top: 10px;
 }
+
 #show-done-button:hover {
     background-color: red;
     color: white;
 }
 
+#show-done-button.active {
+    background-color: red; /* Neue Farbe beim Klicken */
+    color: white;
+}
+
+
+
+#show-filter-button {
+background-color: whitesmoke; 
+color: grey; 
+height: 40px;
+border: 2px solid black; /* Schwarzer Rand */
+border-radius: 5px; 
+padding: 10px 20px;
+font-size: 16px; 
+cursor: pointer;
+width: 20%;
+margin-top: 10px;
+}
+#show-filter-button:hover {
+  background-color: red;
+  color: white;
+}
+#show-filter-button.active {
+  background-color: red; /* Neue Farbe beim Klicken */
+  color: white;
+}
+
 #show-not-done-button {
-  background-color: white; 
+background-color: whitesmoke; 
+color: grey; 
+border: 2px solid black; /* Schwarzer Rand */
+height: 40px;
+border-radius: 5px; 
+padding: 10px 20px;
+font-size: 16px; 
+cursor: pointer;
+width: 20%;
+}
+#show-not-done-button:hover {
+  background-color: red;
+  color: white;
+}
+#show-not-done-button.active {
+  background-color: red; /* Neue Farbe beim Klicken */
+  color: white;
+}
+#show-all-button {
+background-color: whitesmoke; 
+color: grey; 
+border: 2px solid black; /* Schwarzer Rand */
+height: 40px;
+border-radius: 5px; 
+padding: 10px 20px;
+margin-top: 10px;
+font-size: 16px; 
+cursor: pointer;
+width: 20%;
+}
+#show-all-button:hover {
+  background-color: red;
+  color: white;
+}
+#show-all-button.active {
+  background-color: red; /* Neue Farbe beim Klicken */
+  color: white;
+}
+
+#add-tags-button {
+  background-color: whitesmoke; 
   color: grey; 
-  border: none;
+  border: 2px solid black; /* Schwarzer Rand */
   height: 40px;
+  width: 163px;
   border-radius: 5px; 
   padding: 10px 20px;
   font-size: 16px; 
   cursor: pointer;
-  width: 33%;
 }
-#show-not-done-button:hover {
+#add-tags-button:hover {
     background-color: red;
     color: white;
 }
 
-#show-all-button {
-  background-color: white; 
-  color: grey; 
-  border: none;
-  height: 40px;
+#task-input-tags {
+  width: 225px; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 2px solid black; /* Schwarzer Rand */
   border-radius: 5px; 
-  padding: 10px 20px;
-  margin-top: 10px;
+  font-size: 16px; 
+}
+
+
+
+
+
+
+
+.searchContainer {
+  width: 300px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+
+#noteId {
+  width: 140px; 
+  padding: 5px; 
+  margin: 10px 0; 
+  border: 2px solid black; /* Schwarzer Rand */
+  border-radius: 5px; 
+  font-size: 16px; 
+  height: 20px;
+}
+
+
+
+#checkNote {
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  height: 35px;
+margin-left: 15px;
+  width: 80px;
+  border-radius: 5px; 
   font-size: 16px; 
   cursor: pointer;
-  width: 33%;
 }
-#show-all-button:hover {
-    background-color: red;
-    color: white;
+
+#checkNote:hover {
+  background-color: red;
+  color: white;
+}
+
+#dateId {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #2ecc71;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 220px;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+#dateId:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+  background-color: white;
+}
+
+.fälligkeitDate {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: lightgrey; /* Heller Hintergrund */
+  padding: 2px;
+  height: 10px;
+  margin: 8px auto; /* Zentriert das Element horizontal */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 90%; /* Passt die Breite an */
+  height: 60px;
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+.buttonForli {
+  background-color: whitesmoke; 
+color: grey; 
+border: 2px solid black; /* Schwarzer Rand */
+height: 40px;
+border-radius: 5px; 
+font-size: 12px; 
+cursor: pointer;
+width: 50%;
+}
+.buttonForli:hover {
+  background-color: red;
+  color: white;
+}
+
+.unresolvedTasks {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: orange; /* Heller Hintergrund */
+  padding: 12px;
+  margin-top: 10px; /* Zentriert das Element horizontal */
+  margin-right: 25px;
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-family: Arial, sans-serif;
+  width: 180px; /* Passt die Breite an */
+  height: 35px;
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+
+.buttonGoToList {
+  background-color: whitesmoke; 
+color: grey; 
+border: 2px solid black; /* Schwarzer Rand */
+height: 40px;
+border-radius: 5px; 
+
+margin-top: 10px;
+font-size: 13px; 
+cursor: pointer;
+width: 100px;
+}
+.buttonGoToList:hover {
+  background-color: red;
+  color: white;
+}
+
+
+select {
+  width: 250px;
+  padding: 10px;
+  border: 2px solid #007BFF;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+select:hover {
+  border-color: #0056b3;
+}
+
+#exportButton{
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  margin-top: 5px;
+  height: 60px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 100%;
+}
+
+#exportButton:hover {
+  background-color: red;
+  color: white;
+}
+
+#exportPDFButton{
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  margin-top: 25px;
+  height: 60px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 100%;
+}
+#exportButton:hover {
+  background-color: red;
+  color: white;
+}
+
+#exportPDFButton{
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  margin-top: 25px;
+  height: 60px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 100%;
+}
+#exportPDFButton:hover {
+  background-color: red;
+  color: white;
+}
+#exportPDFButton.active {
+  background-color: red; /* Neue Farbe beim Klicken */
+  color: white;
+}
+#exportExcelButton{
+  background-color: whitesmoke; 
+  color: grey; 
+  border: 2px solid black; /* Schwarzer Rand */
+  margin-top: 25px;
+  height: 60px;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 100%;
+}
+#exportExcelButton:hover {
+  background-color: red;
+  color: white;
+}
+.prioLiElement {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: orange; /* Heller Hintergrund */
+  padding: 12px 16px;
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 80%; /* Passt die Breite an */
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+.deleteButtonPrio {
+background-color: whitesmoke; 
+color: grey; 
+border: 2px solid black; /* Schwarzer Rand */
+height: 40px;
+border-radius: 5px; 
+
+margin-top: 10px;
+font-size: 13px; 
+cursor: pointer;
+width: 100px;
+}
+.deleteButtonPrio:hover {
+  background-color: red;
+  color: white;
+}
+.createDateForTimer {
+  list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+  background: darkgray; /* Heller Hintergrund */
+  padding: 12px 16px;
+  margin: 8px auto; /* Zentriert das Element horizontal */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  width: 50%; /* Passt die Breite an */
+  display: flex;
+  justify-content: space-between; /* Verteilt den Text und Button */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+}
+.createDateForTimer:hover {
+background-color: red;
+color: white;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  cursor: pointer;
+
+}
+.legend {
+  display: flex;
+  justify-content: center; /* Zentriert die Boxen horizontal */
+  align-items: center;
+  gap: 15px;
+  height: 100%;
 }
